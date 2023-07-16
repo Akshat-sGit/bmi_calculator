@@ -1,7 +1,7 @@
 // import 'dart:ui';
 import 'package:bmi_calculator/widgets/calculate_card.dart';
 import 'package:flutter/material.dart';
-// import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'widgets/boxes.dart';
 import 'widgets/icon_cont.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -47,14 +47,11 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text(
+        title: Text(
           'BMI CALCULATOR',
-          style: TextStyle(
-            fontFamily: 'frunchy',
-            fontSize: 50.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
+          style: GoogleFonts.poppins(
+              fontWeight: FontWeight.bold,
+          )
         ),
       ),
       body: Column(
