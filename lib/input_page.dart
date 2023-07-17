@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color.fromARGB(255, 29, 30, 50);
 const inactiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color(0xFFEB1555);
+const bottomContainerColor = Color.fromARGB(255, 234, 0, 17);
 
 // enum Gender{male, female,}
 
@@ -47,6 +47,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
           'BMI CALCULATOR',
           style: GoogleFonts.poppins(
@@ -102,7 +103,7 @@ class _InputPageState extends State<InputPage> {
                 children: <Widget>[
                   const Text('Height',
                       style: TextStyle(
-                        fontSize: 40.0,
+                        fontSize: 25.0,
                         color: Color(0xFF8D8E98),
                         fontWeight: FontWeight.bold,
                       )),
