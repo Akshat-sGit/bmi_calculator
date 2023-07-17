@@ -22,7 +22,8 @@ class IconContent extends StatelessWidget {
           ),
            Text(label,
             style:GoogleFonts.poppins(
-              fontWeight: FontWeight.w900
+              fontWeight: FontWeight.w900,
+              fontSize: 20.0,
             )  ,
            ),
         ]);

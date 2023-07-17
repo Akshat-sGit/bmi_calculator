@@ -5,11 +5,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'widgets/boxes.dart';
 import 'widgets/icon_cont.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:numberpicker/numberpicker.dart';
 
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color.fromARGB(255, 29, 30, 50);
 const inactiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color.fromARGB(255, 29, 30, 50);
+const bottomContainerColor = Color.fromARGB(255, 2, 148, 50);
 
 // enum Gender{male, female,}
 
@@ -47,11 +48,20 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor:const Color.fromARGB(255, 2, 148, 50),
         title: Text(
           'BMI CALCULATOR',
           style: GoogleFonts.poppins(
+            color: Colors.white,
               fontWeight: FontWeight.bold,
+              fontSize: 22.5,
+              shadows: [
+                const Shadow(
+                  blurRadius: 2.0, 
+                  color: Colors.black,
+                  offset: Offset(2.0, 2.0),
+                )
+              ]
           )
         ),
       ),
@@ -214,23 +224,19 @@ class _InputPageState extends State<InputPage> {
                                 age = age + 1;
                               });
                             },
-                            child: const Icon(Icons.add),
+                            child: const Text("Pick weight"),
                           ),
-                          FloatingActionButton(
-                            onPressed: () {
-                              setState(() {
-                                age = age - 1;
-                              });
-                            },
-                            child: const Icon(Icons.remove),
-                          ),
-                        ],
-                      ),
+                          NumberPicker(
+                            minValue: 0,
+                            maxValue: 250, 
+                            value: weight, 
+                            onChanged: (value) => setState(() => weight = value), 
+                        )
                     ],
-                  ),
-                ),
+                    ),
+            ]),
               ),
-            ],
+              )],
           )),
           const CalculateCard(),
         ],
