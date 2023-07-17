@@ -1,4 +1,3 @@
-import 'package:bmi_calculator/main.dart';
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatelessWidget {
