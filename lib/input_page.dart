@@ -62,7 +62,9 @@ class _InputPageState extends State<InputPage> {
                     color: Colors.black,
                     offset: Offset(2.0, 2.0),
                   )
-                ])),
+                ]
+                )
+                ),
       ),
       body: Column(
         children: <Widget>[
