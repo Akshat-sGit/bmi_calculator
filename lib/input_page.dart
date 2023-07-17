@@ -9,7 +9,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color.fromARGB(255, 29, 30, 50);
 const inactiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color.fromARGB(255, 234, 0, 17);
+const bottomContainerColor = Color.fromARGB(255, 29, 30, 50);
 
 // enum Gender{male, female,}
 
@@ -105,7 +105,7 @@ class _InputPageState extends State<InputPage> {
                       style: TextStyle(
                         fontSize: 25.0,
                         color: Color(0xFF8D8E98),
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w900,
                       )),
                   Text('$count cm',
                       style: const TextStyle(
@@ -154,7 +154,7 @@ class _InputPageState extends State<InputPage> {
                         style: TextStyle(
                           fontSize: 25.0,
                           color: Color(0xFF8D8E98),
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                         ),
                       ),
                       Text('$weight',
@@ -198,12 +198,12 @@ class _InputPageState extends State<InputPage> {
                           style: TextStyle(
                             fontSize: 25.0,
                             color: Color(0xFF8D8E98),
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
                           )),
                       Text('$age',
                           style: const TextStyle(
                             fontSize: 20.0,
-                            fontWeight: FontWeight.w900,
+                            fontWeight: FontWeight.bold,
                           )),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

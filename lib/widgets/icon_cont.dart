@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 
 class IconContent extends StatelessWidget {
 
@@ -20,7 +20,11 @@ class IconContent extends StatelessWidget {
            const SizedBox(
             height: 15.0,
           ),
-           Text(label),
+           Text(label,
+            style:GoogleFonts.poppins(
+              fontWeight: FontWeight.w900
+            )  ,
+           ),
         ]);
   }
 }
