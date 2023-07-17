@@ -10,7 +10,7 @@ import 'package:numberpicker/numberpicker.dart';
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color.fromARGB(255, 29, 30, 50);
 const inactiveCardColor = Color(0xFF111328);
-const bottomContainerColor = Color.fromARGB(255, 2, 148, 50);
+const bottomContainerColor = Color.fromARGB(255, 0, 0, 0);
 
 // enum Gender{male, female,}
 
@@ -27,7 +27,7 @@ class _InputPageState extends State<InputPage> {
   int age = 0;
   Color maleCardColor = inactiveCardColor;
   Color femaleCardColor = inactiveCardColor;
-  late int gender ; 
+  late int gender;
   void updateColor(int gender) {
     if (gender == 1) {
       if (maleCardColor == inactiveCardColor) {
@@ -44,26 +44,24 @@ class _InputPageState extends State<InputPage> {
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:const Color.fromARGB(255, 2, 148, 50),
-        title: Text(
-          'BMI CALCULATOR',
-          style: GoogleFonts.poppins(
-            color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 22.5,
-              shadows: [
-                const Shadow(
-                  blurRadius: 2.0, 
-                  color: Colors.black,
-                  offset: Offset(2.0, 2.0),
-                )
-              ]
-          )
-        ),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        title: Text('BMI CALCULATOR',
+            style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 22.5,
+                shadows: [
+                  const Shadow(
+                    blurRadius: 2.0,
+                    color: Colors.black,
+                    offset: Offset(2.0, 2.0),
+                  )
+                ])),
       ),
       body: Column(
         children: <Widget>[
@@ -175,22 +173,20 @@ class _InputPageState extends State<InputPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          FloatingActionButton(
-                            onPressed: () {
-                              setState(() {
-                                weight = weight + 1;
-                              });
-                            },
-                            child: const Icon(Icons.add),
-                          ),
-                          FloatingActionButton(
-                            onPressed: () {
-                              setState(() {
-                                weight = weight - 1;
-                              });
-                            },
-                            child: const Icon(Icons.remove),
-                          ),
+                          NumberPicker(
+                              axis: Axis.horizontal,
+                              minValue: 0,
+                              maxValue: 200,
+                              itemWidth: 50,
+                              haptics: true,
+                              itemHeight: 40,
+                              value: weight,
+                              onChanged: (value1) =>
+                                  setState(() => weight = value1),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  border: Border.all(color: Colors.black),
+                                  color: const Color.fromARGB(50, 0, 0, 0)))
                         ],
                       ),
                     ],
@@ -201,42 +197,43 @@ class _InputPageState extends State<InputPage> {
                 child: ReusableCard(
                   colour: activeCardColor,
                   cardChild: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      const Text('Age',
-                          style: TextStyle(
-                            fontSize: 25.0,
-                            color: Color(0xFF8D8E98),
-                            fontWeight: FontWeight.w900,
-                          )),
-                      Text('$age',
-                          style: const TextStyle(
-                            fontSize: 20.0,
-                            fontWeight: FontWeight.bold,
-                          )),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          FloatingActionButton(
-                            onPressed: () {
-                              setState(() {
-                                age = age + 1;
-                              });
-                            },
-                            child: const Text("Pick weight"),
-                          ),
-                          NumberPicker(
-                            minValue: 0,
-                            maxValue: 250, 
-                            value: weight, 
-                            onChanged: (value) => setState(() => weight = value), 
-                        )
-                    ],
-                    ),
-            ]),
-              ),
-              )],
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        const Text('Age',
+                            style: TextStyle(
+                              fontSize: 25.0,
+                              color: Color(0xFF8D8E98),
+                              fontWeight: FontWeight.w900,
+                            )),
+                        Text('$age',
+                            style: const TextStyle(
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            )),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: <Widget>[
+                            NumberPicker(
+                                minValue: 0,
+                                maxValue: 100,
+                                value: age,
+                                haptics: true,
+                                axis: Axis.horizontal,
+                                itemWidth: 50,
+                                itemHeight: 40,
+                                onChanged: (value2) =>
+                                    setState(() => age = value2),
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.black),
+                                    color: const Color.fromARGB(50, 0, 0, 0)))
+                          ],
+                        ),
+                      ]),
+                ),
+              )
+            ],
           )),
           const CalculateCard(),
         ],
