@@ -40,6 +40,7 @@ class IconContent extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w900,
               fontSize: 20.0,
+              color: genderDep()
             ),
           ),
         ]);

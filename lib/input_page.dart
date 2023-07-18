@@ -34,6 +34,7 @@ class _InputPageState extends State<InputPage> {
     if (gender == 1) {
       if (maleCardColor == inactiveCardColor) {
         maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
       } else {
         maleCardColor = inactiveCardColor;
       }
@@ -41,6 +42,7 @@ class _InputPageState extends State<InputPage> {
     if (gender == 2) {
       if (femaleCardColor == inactiveCardColor) {
         femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor; 
       } else {
         femaleCardColor = inactiveCardColor;
       }
@@ -53,7 +55,7 @@ class _InputPageState extends State<InputPage> {
     } else if (femaleCardColor == activeCardColor) {
       return 'Female';
     } else {
-      return 'Please Select a Gender'; 
+      return 'Please Select a Gender';
     }
   }
 
@@ -65,10 +67,10 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
-                color: Colors.green,
-                fontWeight: FontWeight.w900,
-                fontSize: 22.5,
-                )),
+              color: Colors.green,
+              fontWeight: FontWeight.w900,
+              fontSize: 22.5,
+            )),
       ),
       body: Column(
         children: <Widget>[
@@ -183,10 +185,10 @@ class _InputPageState extends State<InputPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           NumberPicker(
-                            textStyle:const TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.w900,
-                            ),
+                              textStyle: const TextStyle(
+                                color: Colors.green,
+                                fontWeight: FontWeight.w900,
+                              ),
                               axis: Axis.horizontal,
                               minValue: 0,
                               maxValue: 200,
@@ -197,13 +199,10 @@ class _InputPageState extends State<InputPage> {
                               onChanged: (value1) =>
                                   setState(() => weight = value1),
                               decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(color: Colors.green,
-                                    width: 3.0
-                                    ),
-                                    color: const Color.fromARGB(50, 0, 0, 0)
-                            )
-                          )
+                                  borderRadius: BorderRadius.circular(16),
+                                  border: Border.all(
+                                      color: Colors.green, width: 3.0),
+                                  color: const Color.fromARGB(50, 0, 0, 0)))
                         ],
                       ),
                     ],
@@ -232,10 +231,10 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             NumberPicker(
-                              textStyle:const TextStyle(
-                              color: Colors.green,
-                              fontWeight: FontWeight.w900,
-                            ),
+                                textStyle: const TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.w900,
+                                ),
                                 minValue: 0,
                                 maxValue: 100,
                                 value: age,
@@ -247,7 +246,8 @@ class _InputPageState extends State<InputPage> {
                                     setState(() => age = value2),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(color: Colors.green,width: 3.0),
+                                    border: Border.all(
+                                        color: Colors.green, width: 3.0),
                                     color: const Color.fromARGB(50, 0, 0, 0)))
                           ],
                         ),
