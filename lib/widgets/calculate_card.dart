@@ -3,7 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import '../input_page.dart';
 
 class CalculateCard extends StatelessWidget {
-  const CalculateCard({ Key? key}) : super(key: key);
+  const CalculateCard({super.key, required this.cal});
+
+  final String cal;
+
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,7 @@ class CalculateCard extends StatelessWidget {
       margin: const EdgeInsets.only(top: 10.0),
       width: double.infinity,
       alignment: Alignment.center,
-      child: Text('Calculate',
+      child: Text(cal, 
           style: GoogleFonts.poppins(
             fontSize: 25.0,
             fontWeight: FontWeight.bold,

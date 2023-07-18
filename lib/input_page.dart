@@ -7,8 +7,9 @@ import 'widgets/boxes.dart';
 import 'widgets/icon_cont.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:numberpicker/numberpicker.dart';
+import 'package:bmi_calculator/calculator_brain.dart';
 
-const uniColor = Color.fromARGB(255, 40, 49, 62);
+const uniColor = Color.fromARGB(255, 0, 0, 0);
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color.fromARGB(255, 29, 30, 50);
 const inactiveCardColor = uniColor;
@@ -53,6 +54,7 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         title: Text('BMI CALCULATOR',
+            textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -239,12 +241,21 @@ class _InputPageState extends State<InputPage> {
           )),
           GestureDetector(
               onTap: () {
+                CalculatorBrain calc =
+                    CalculatorBrain(height: count, weight: weight);
+
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ResultsPage()));
+                        builder: (context) =>ResultsPage(
+                          bmiResult: calc.calculateBMI(),
+                          resultText: calc.getResult(),
+                          interpretation: calc.interPretation(),
+                        )));
               },
-              child: const CalculateCard()),
+              child: const CalculateCard(
+                cal: 'Calculate',
+              )),
         ],
       ),
     );
