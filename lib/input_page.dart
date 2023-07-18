@@ -87,6 +87,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: const IconContent(
                       icon: FontAwesomeIcons.mars,
                       label: 'Male',
+                      colored: "Male",
                     ),
                   ),
                 ),
@@ -103,6 +104,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: const IconContent(
                       icon: FontAwesomeIcons.venus,
                       label: 'Female',
+                      colored: "Female",
                     ),
                   ),
                 ),
@@ -181,6 +183,10 @@ class _InputPageState extends State<InputPage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           NumberPicker(
+                            textStyle:const TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.w900,
+                            ),
                               axis: Axis.horizontal,
                               minValue: 0,
                               maxValue: 200,
@@ -191,9 +197,13 @@ class _InputPageState extends State<InputPage> {
                               onChanged: (value1) =>
                                   setState(() => weight = value1),
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(color: Colors.green),
-                                  color: const Color.fromARGB(50, 0, 0, 0)))
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.green,
+                                    width: 3.0
+                                    ),
+                                    color: const Color.fromARGB(50, 0, 0, 0)
+                            )
+                          )
                         ],
                       ),
                     ],
@@ -222,6 +232,10 @@ class _InputPageState extends State<InputPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             NumberPicker(
+                              textStyle:const TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.w900,
+                            ),
                                 minValue: 0,
                                 maxValue: 100,
                                 value: age,
@@ -233,7 +247,7 @@ class _InputPageState extends State<InputPage> {
                                     setState(() => age = value2),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(color: Colors.green),
+                                    border: Border.all(color: Colors.green,width: 3.0),
                                     color: const Color.fromARGB(50, 0, 0, 0)))
                           ],
                         ),

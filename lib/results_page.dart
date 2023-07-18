@@ -38,14 +38,13 @@ class ResultsPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const Expanded(
+          Expanded(
               child: Text(
             "Your Result",
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: 'Frunchy',
+            style: GoogleFonts.poppins(
               color: Colors.green,
-              fontSize: 100.0,
+              fontSize: 50.0,
               fontWeight: FontWeight.w900,
             ),
           )),
