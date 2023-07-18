@@ -9,8 +9,17 @@ class ResultsPage extends StatelessWidget {
   final String bmiResult;
   final String resultText;
   final String interpretation;
+  final String gen;
+  final int aged;
 
-  const ResultsPage({super.key, required this.bmiResult, required this.resultText, required this.interpretation}); 
+  const ResultsPage(
+      {super.key,
+      required this.bmiResult,
+      required this.resultText,
+      required this.interpretation,
+      required this.aged,
+      required this.gen
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -18,36 +27,32 @@ class ResultsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text("BMI CALCULATOR",
+            textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+                color: Colors.green,
+                fontWeight: FontWeight.w900,
                 fontSize: 22.5,
-                shadows: [
-                  const Shadow(
-                    blurRadius: 2.0,
-                    color: Colors.black,
-                    offset: Offset(2.0, 2.0),
-                  )
-                ])),
+               )),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          Expanded(
+          const Expanded(
               child: Text(
             "Your Result",
             textAlign: TextAlign.center,
-            style: GoogleFonts.poppins(
+            style: TextStyle(
+              fontFamily: 'Frunchy',
               color: Colors.green,
-              fontSize: 50.0,
+              fontSize: 100.0,
               fontWeight: FontWeight.w900,
             ),
           )),
-           Expanded(
+          Expanded(
             flex: 5,
             child: ReusableCard(
-              colour:const Color.fromARGB(255, 29, 30, 50),
+              colour: const Color.fromARGB(255, 29, 30, 50),
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -60,10 +65,39 @@ class ResultsPage extends StatelessWidget {
                     bmiResult,
                     style: kBMITextStyle,
                   ),
-                  Text(
-                    interpretation,
-                    textAlign: TextAlign.center,
-                    style: kBodyTextStyle,
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        "Gender: $gen",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                          fontSize: 20.0, 
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueAccent
+                        ),
+                      ),
+                      Text(
+                        "Age: $aged",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                            fontSize: 20.0, fontWeight: FontWeight.bold, 
+                            color: Colors.blueAccent
+                            ),
+                      )
+                    ],
+                  ),
+                  Container(
+                    padding:const EdgeInsets.all(20.0),
+                    margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    decoration:BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color:const Color.fromARGB(149, 9, 9, 16)
+                    ),
+                    child: Text(
+                      interpretation,
+                      textAlign: TextAlign.center,
+                      style: kBodyTextStyle,
+                    ),
                   )
                 ],
               ),
@@ -71,7 +105,7 @@ class ResultsPage extends StatelessWidget {
           ),
           GestureDetector(
               onTap: () {
-                Navigator.pop(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => const BMICalculator()));

@@ -1,4 +1,3 @@
-// import 'dart:ui';
 import 'package:bmi_calculator/results_page.dart';
 import 'package:bmi_calculator/widgets/calculate_card.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +47,16 @@ class _InputPageState extends State<InputPage> {
     }
   }
 
+  String genderIng() {
+    if (maleCardColor == activeCardColor) {
+      return 'Male';
+    } else if (femaleCardColor == activeCardColor) {
+      return 'Female';
+    } else {
+      return 'Please Select a Gender'; 
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,16 +65,10 @@ class _InputPageState extends State<InputPage> {
         title: Text('BMI CALCULATOR',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
+                color: Colors.green,
+                fontWeight: FontWeight.w900,
                 fontSize: 22.5,
-                shadows: [
-                  const Shadow(
-                    blurRadius: 2.0,
-                    color: Colors.black,
-                    offset: Offset(2.0, 2.0),
-                  )
-                ])),
+                )),
       ),
       body: Column(
         children: <Widget>[
@@ -189,7 +192,7 @@ class _InputPageState extends State<InputPage> {
                                   setState(() => weight = value1),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(16),
-                                  border: Border.all(color: Colors.black),
+                                  border: Border.all(color: Colors.green),
                                   color: const Color.fromARGB(50, 0, 0, 0)))
                         ],
                       ),
@@ -230,7 +233,7 @@ class _InputPageState extends State<InputPage> {
                                     setState(() => age = value2),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(16),
-                                    border: Border.all(color: Colors.black),
+                                    border: Border.all(color: Colors.green),
                                     color: const Color.fromARGB(50, 0, 0, 0)))
                           ],
                         ),
@@ -247,11 +250,13 @@ class _InputPageState extends State<InputPage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>ResultsPage(
-                          bmiResult: calc.calculateBMI(),
-                          resultText: calc.getResult(),
-                          interpretation: calc.interPretation(),
-                        )));
+                        builder: (context) => ResultsPage(
+                              bmiResult: calc.calculateBMI(),
+                              resultText: calc.getResult(),
+                              interpretation: calc.interPretation(),
+                              gen: genderIng(),
+                              aged: age,
+                            )));
               },
               child: const CalculateCard(
                 cal: 'Calculate',
