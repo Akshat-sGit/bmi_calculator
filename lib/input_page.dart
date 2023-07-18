@@ -8,9 +8,10 @@ import 'widgets/icon_cont.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:numberpicker/numberpicker.dart';
 
+const uniColor = Color.fromARGB(255, 40, 49, 62);
 const bottomContainerHeight = 80.0;
 const activeCardColor = Color.fromARGB(255, 29, 30, 50);
-const inactiveCardColor = Color(0xFF111328);
+const inactiveCardColor = uniColor;
 const bottomContainerColor = Color.fromARGB(255, 0, 0, 0);
 
 // enum Gender{male, female,}
@@ -62,9 +63,7 @@ class _InputPageState extends State<InputPage> {
                     color: Colors.black,
                     offset: Offset(2.0, 2.0),
                   )
-                ]
-                )
-                ),
+                ])),
       ),
       body: Column(
         children: <Widget>[
@@ -107,7 +106,7 @@ class _InputPageState extends State<InputPage> {
           )),
           Expanded(
             child: ReusableCard(
-              colour: activeCardColor,
+              colour: uniColor,
               cardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -155,7 +154,7 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  colour: activeCardColor,
+                  colour: uniColor,
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -198,7 +197,7 @@ class _InputPageState extends State<InputPage> {
               ),
               Expanded(
                 child: ReusableCard(
-                  colour: activeCardColor,
+                  colour: uniColor,
                   cardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -238,12 +237,14 @@ class _InputPageState extends State<InputPage> {
               )
             ],
           )),
-          GestureDetector(onTap: () {
-            Navigator.push(context, 
-            MaterialPageRoute(builder: (context) =>const ResultsPage()));
-          },
-           child: const CalculateCard()
-          ),
+          GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResultsPage()));
+              },
+              child: const CalculateCard()),
         ],
       ),
     );
