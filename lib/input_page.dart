@@ -42,7 +42,7 @@ class _InputPageState extends State<InputPage> {
     if (gender == 2) {
       if (femaleCardColor == inactiveCardColor) {
         femaleCardColor = activeCardColor;
-        maleCardColor = inactiveCardColor; 
+        maleCardColor = inactiveCardColor;
       } else {
         femaleCardColor = inactiveCardColor;
       }
@@ -65,12 +65,13 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         title: Text('BMI CALCULATOR',
-            textAlign: TextAlign.center,
             style: GoogleFonts.poppins(
               color: Colors.green,
               fontWeight: FontWeight.w900,
-              fontSize: 22.5,
+              fontSize: 22,
+              letterSpacing: 2.0
             )),
+        centerTitle: true,
       ),
       body: Column(
         children: <Widget>[
