@@ -3,7 +3,7 @@ import 'package:bmi_calculator/widgets/calculate_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'widgets/boxes.dart';
-import 'widgets/icon_cont.dart';
+import 'package:bmi_calculator/widgets/icon_cont.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:numberpicker/numberpicker.dart';
 import 'package:bmi_calculator/calculator_brain.dart';
